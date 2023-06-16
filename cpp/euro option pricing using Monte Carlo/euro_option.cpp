@@ -25,17 +25,18 @@ int main() {
 	bool key1 =1;
 	bool key2 =1;
 	while(key1){
-		cout<<"enter expire time: ";
+		cout << "\033[2J\033[1;1H";
+		cout<<"Enter Expire Time/Duration (Days): ";
 		cin>>t;
-		cout<<"enter current price: ";
+		cout<<"Enter Current Price $: ";
 		cin>>s0;
-		cout<<"enter strike price: ";
+		cout<<"Enter Strike Price $: ";
 		cin>>k;
-		cout<<"enter volatility: ";
+		cout<<"Enter Volatility: ";
 		cin>>s;
-		cout<<"enter return: ";
+		cout<<"Enter Return: ";
 		cin>>r;
-		cout<<"enter option type(0-call/1-put): ";
+		cout<<"Enter Option Type (0-call/1-put): ";
 		cin >> tp1;
 		if(tp1==0){
 			tp=call;
@@ -45,15 +46,17 @@ int main() {
 		}
 		option1.reset(t,s0,k,s,r,tp);
 		while(key2){
-			cout<<"enter # of path: ";
+			cout<<"Eter # of Path: ";
 			cin>>path;
 			float price=option1.MCprice(path);
-			cout << "price is" << price << endl;
-			cout << "press 1 calculate again, 0 exit: ";
+			cout << "Price is $ " << price << endl;
+			cout << "Press 1 Calculate Again, 0 Exit: ";
 			cin>>key2;
 		}
-		cout << "press 1 for next option, 0 exit: ";
+		cout << "\033[2J\033[1;1H";
+		cout << "Press 1 for Next Option, 0 Exit: ";
 		cin>>key1;
+		key2=1;
 	}
 	return 0;
 }
